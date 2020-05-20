@@ -36,9 +36,9 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public boolean deleteGroup(int id) {
-        if(isGroupEmpty(id)) groupRepository.deleteById(id);
-        return isGroupEmpty(id);
+    public boolean isEmptyGroup(int id) {
+        if(studentRepository.findStudentsByGroupId(id).isEmpty()) return true;
+        else return false;
     }
 
     @Override
@@ -56,8 +56,4 @@ public class GroupServiceImpl implements GroupService {
         groupRepository.save(group);
     }
 
-    private boolean isGroupEmpty(int groupId){
-        if(studentRepository.findStudentsByGroupId(groupId).isEmpty()) return true;
-        else return false;
-    }
 }

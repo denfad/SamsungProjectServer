@@ -1,10 +1,12 @@
 package ru.denfad.dbunivesity.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 @Table(name = "groups")
 public class Group {

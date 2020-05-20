@@ -28,9 +28,9 @@ public class GroupController {
        groupService.addGroup(group);
     }
 
-    @PostMapping(path = "/delete/{id}", consumes = "application/json", produces = "application/json")
-    public boolean deleteGroup(@PathVariable(name = "id") int id){
-        return groupService.deleteGroup(id);
+    @GetMapping(path = "/isempty/{id}",  produces = "application/json")
+    public boolean checkIsEmptyGroup(@PathVariable(name = "id") int id){
+        return groupService.isEmptyGroup(id);
     }
 
     @DeleteMapping(path = "/delete/{id}", consumes = "application/json")
