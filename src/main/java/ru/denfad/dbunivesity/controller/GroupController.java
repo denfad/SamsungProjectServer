@@ -33,8 +33,8 @@ public class GroupController {
         return groupService.isEmptyGroup(id);
     }
 
-    @DeleteMapping(path = "/delete/{id}", consumes = "application/json")
-    public void deleteGroupAnyway(@PathVariable(name = "id") int id){
+    @DeleteMapping(path = "/delete/{id}")
+    public void deleteGroupAnyway(@PathVariable(name = "id") int id) {
         groupService.deleteGroupAnyway(id);
     }
 

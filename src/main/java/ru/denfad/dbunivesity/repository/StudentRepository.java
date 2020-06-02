@@ -13,4 +13,10 @@ public interface StudentRepository extends JpaRepository<Student,Integer> {
 
     @Query("select s from Student s where s.group.groupId = :id")
     List<Student> findStudentsByGroupId(@Param("id") int id);
+
+    @Query("select s from Student s order by s.secondName,s.name,s.middleName asc")
+    List<Student> sortStudentsBySecondName();
+
+    @Query("select s from Student s order by s.group.groupId, s.student_id asc")
+    List<Student> sortStudentsByGroupId();
 }

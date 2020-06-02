@@ -56,4 +56,14 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findStudentsByGroup(int group_id) {
         return studentRepository.findStudentsByGroupId(group_id);
     }
+
+    @Override
+    public List<Student> sortStudentsBySecondName() {
+        return studentRepository.sortStudentsBySecondName();
+    }
+
+    @Override
+    public List<Student> sortStudentsByGroupId() {
+        return studentRepository.sortStudentsByGroupId();
+    }
 }

@@ -31,11 +31,19 @@ public class StudentController {
     }
 
     @GetMapping(path = "/", produces = "application/json")
-    public List<Student> getAllStudents(){
-        return studentService.getAllStudents();
+    public List<Student> getAllStudents(@RequestParam(required = false) String sortType){
+        if(sortType==null) sortType="";
+        switch (sortType) {
+            case "name":
+                return studentService.sortStudentsBySecondName();
+            case "groupid":
+                return studentService.sortStudentsByGroupId();
+            default:
+                return studentService.getAllStudents();
+        }
     }
 
-    @DeleteMapping(path = "/delete/{id}", consumes = "application/json")
+    @DeleteMapping(path = "/delete/{id}")
     public void deleteStudent(@PathVariable(name = "id") int id){
         studentService.deleteStudent(id);
     }

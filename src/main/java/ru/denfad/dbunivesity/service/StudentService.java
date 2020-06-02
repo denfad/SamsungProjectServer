@@ -12,4 +12,6 @@ public interface StudentService {
     public void updateStudent(Student student);
     public void addStudent(Student student, int group_id);
     public List<Student> findStudentsByGroup(int group_id);
+    public List<Student> sortStudentsBySecondName();
+    public List<Student> sortStudentsByGroupId();
 }
