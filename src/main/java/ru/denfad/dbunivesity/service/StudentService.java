@@ -14,4 +14,5 @@ public interface StudentService {
     public List<Student> findStudentsByGroup(int group_id);
     public List<Student> sortStudentsBySecondName();
     public List<Student> sortStudentsByGroupId();
+    public List<Student> searchStudent(String words);
 }

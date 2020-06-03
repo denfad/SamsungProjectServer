@@ -9,6 +9,7 @@ import ru.denfad.dbunivesity.repository.GroupRepository;
 import ru.denfad.dbunivesity.repository.StudentRepository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -65,5 +66,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> sortStudentsByGroupId() {
         return studentRepository.sortStudentsByGroupId();
+    }
+
+    @Override
+    public List<Student> searchStudent(String searchRequest) {
+        String[] words = searchRequest.replace('"',' ').split(" ");
+        for(String s:words) System.out.println(s);
+        return studentRepository.searchStudents(words);
     }
 }

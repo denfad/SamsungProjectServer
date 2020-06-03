@@ -7,6 +7,7 @@ import ru.denfad.dbunivesity.service.GroupService;
 import ru.denfad.dbunivesity.service.StudentService;
 import ru.denfad.dbunivesity.service.StudentServiceImpl;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -56,5 +57,10 @@ public class StudentController {
     @GetMapping(path = "/group/{id}", produces = "application/json")
     public List<Student> getStudentsByGroupId(@PathVariable(name="id") int id){
         return studentService.findStudentsByGroup(id);
+    }
+
+    @PostMapping(path="/search",consumes = "application/json",produces = "application/json")
+    public List<Student> searchStudent(@RequestBody String searchRequest){
+       return studentService.searchStudent(searchRequest);
     }
 }

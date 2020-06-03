@@ -19,4 +19,9 @@ public interface StudentRepository extends JpaRepository<Student,Integer> {
 
     @Query("select s from Student s order by s.group.groupId, s.student_id asc")
     List<Student> sortStudentsByGroupId();
+
+    @Query("select s from Student s " +
+            "where s.name in :words " +
+            "or s.secondName in :words")
+    List<Student> searchStudents(@Param("words") String[] words);
 }
