@@ -50,7 +50,7 @@ public class StudentController {
     }
 
     @PutMapping(path = "/update", consumes = "application/json")
-    public void updateUser(@RequestBody Student student){
+    public void updateStudent(@RequestBody Student student){
         studentService.updateStudent(student);
     }
 
