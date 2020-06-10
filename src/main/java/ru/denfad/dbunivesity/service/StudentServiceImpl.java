@@ -8,8 +8,6 @@ import ru.denfad.dbunivesity.model.Student;
 import ru.denfad.dbunivesity.repository.GroupRepository;
 import ru.denfad.dbunivesity.repository.StudentRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
