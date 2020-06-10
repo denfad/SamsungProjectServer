@@ -22,7 +22,8 @@ if [ -z "$STORAGE_PATH" ]; then
 fi
 
 
-exec java ${JAVA_OPTS} -jar \
+exec /usr/share/app/wait-for-postgres.sh postgres \
+  java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar \
  -Dserver.port=${SERVER_PORT} \
  -Dspring.datasource.url=${SPRING_DATASOURCE_URL} \
  -Dspring.datasource.username=${SPRING_DATASOURCE_USERNAME} \
