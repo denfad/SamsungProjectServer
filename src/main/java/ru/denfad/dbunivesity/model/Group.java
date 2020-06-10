@@ -13,7 +13,7 @@ public class Group {
 
     @Id
     @Column(name = "group_id")
-    private int groupId;
+    private Integer groupId;
 
     @Column(name = "faculty")
     private String faculty;
