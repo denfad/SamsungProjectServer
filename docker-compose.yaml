@@ -7,8 +7,8 @@ services:
     volumes:
       - 'postgres-db-data:/var/lib/postgresql/data'
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=university
+      - POSTGRES_PASSWORD=university
       - POSTGRES_DB=university
       - PG_TRUST_LOCALNET
     networks:
@@ -21,6 +21,9 @@ services:
     image: university/server
     ports:
       - '8080:8080'
+    environment:
+      - SPRING_DATASOURCE_USERNAME=university
+      - SPRING_DATASOURCE_PASSWORD=university
     depends_on:
       - postgres
     volumes:
