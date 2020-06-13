@@ -13,6 +13,10 @@ if [ -z "$SPRING_DATASOURCE_PASSWORD" ]; then
   SPRING_DATASOURCE_PASSWORD=root
 fi
 
+if [ -z "$PG_DATABASE" ]; then
+  PG_DATABASE=university
+fi
+
 if [ -z "$SERVER_PORT" ]; then
   SERVER_PORT=8080
 fi
