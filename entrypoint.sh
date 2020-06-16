@@ -21,8 +21,8 @@ if [ -z "$STORAGE_PATH" ]; then
   STORAGE_PATH=/tmp/university
 fi
 
-
-exec /usr/share/app/wait-for-postgres.sh postgres \
+SPRING_DATASOURCE_PASSWORD=$SPRING_DATASOURCE_PASSWORD SPRING_DATASOURCE_USERNAME=$SPRING_DATASOURCE_USERNAME \
+  /usr/share/app/wait-for-postgres.sh postgres \
   java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar \
  -Dserver.port=${SERVER_PORT} \
  -Dspring.datasource.url=${SPRING_DATASOURCE_URL} \
